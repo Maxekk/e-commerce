@@ -2,11 +2,8 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import Navbar from "../../components/Navbar";
 import ProductInCart from "../../components/ProductInCart";
-import { BsArrowReturnLeft } from "react-icons/bs";
 import { globalContext } from "../../context/Context";
-import Footer from "../../components/Footer";
 import getStripe from "../../lib/getStripe";
-import { isReadable } from "stream";
 
 type Props = {};
 type cartproduct = {
@@ -15,6 +12,7 @@ type cartproduct = {
   quantity: number;
   imageURL: string;
   price: number;
+  color: string;
 };
 
 export default function Cart({}: Props) {
@@ -40,14 +38,14 @@ export default function Cart({}: Props) {
     if (boolean) {
       return (
         <div className="bg-red-white w-[30vw] h-[8vh] mt-5 flex flex-row text-xl mb-4 gap-3">
-          <div className="w-[50%] h-[100%] bg-white flex items-center justify-start p-0 text-2xl">
-            <button className="bg-stone-800 text-white text-xl p-5 w-[100%] transition-[0.5s] hover:bg-red-800">
-              Return to home
+          <div className="w-[50%] h-[100%] flex items-center justify-start p-0 text-2xl">
+            <button className="bg-stone-800 text-white text-xl p-5 w-[100%] transition-[0.5s] shadow-xl hover:bg-red-800">
+              <Link href={"/"}>Return to home</Link>
             </button>
           </div>
-          <div className="bg-white w-[50%] h-[100%] flex justify-center items-center">
+          <div className="w-[50%] h-[100%] flex justify-center items-center">
             <button
-              className="bg-stone-800 text-white text-xl p-5 w-[100%] transition-[0.5s] hover:bg-green-400"
+              className="bg-stone-800 text-white text-xl p-5 w-[100%] transition-[0.5s] shadow-xl hover:bg-green-400"
               onClick={handleCheckout}
             >
               Proceed to payment

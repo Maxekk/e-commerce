@@ -1,14 +1,18 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Counter from "../../components/Counter";
+import ColorPicker from "../../components/ColorPicker";
 import Navbar from "../../components/Navbar";
 import { globalContext } from "../../context/Context";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProductInfo() {
   const router = useRouter();
   const [count, setcount] = useState(0);
   const { cart, setcart } = useContext(globalContext);
+  const [color, setcolor] = useState("red");
 
   const addToCart = () => {
     if (count == 0) {
@@ -36,9 +40,11 @@ function ProductInfo() {
             quantity: count,
             imageURL: router.query.imgURL,
             price: router.query.price,
+            color: color,
           },
         ]);
       }
+      toast("Product added to cart");
     }
   };
 
@@ -55,11 +61,7 @@ function ProductInfo() {
               {router.query.name}
             </div>
             <div className="w-[100%] h-[25%] flex gap-5 justify-center items-center">
-              <div className="w-[70px] h-[70px] rounded-full bg-red-700"></div>
-              <div className="w-[70px] h-[70px] rounded-full bg-blue-800"></div>
-              <div className="w-[70px] h-[70px] rounded-full bg-green-800"></div>
-              <div className="w-[70px] h-[70px] rounded-full bg-pink-800"></div>
-              <div className="w-[70px] h-[70px] rounded-full bg-orange-800"></div>
+              <ColorPicker color={color} setcolor={setcolor} />
             </div>
             <div className="w-[100%] h-[25%] flex justify-center items-center">
               <Counter count={count} setcount={setcount} />
@@ -82,6 +84,18 @@ function ProductInfo() {
           </button>
         </Link>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
