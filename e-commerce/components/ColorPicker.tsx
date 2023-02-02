@@ -2,10 +2,8 @@ import React from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-type Props = { color: string; setcolor: any };
-
-const ColorPicker = ({ color, setcolor }: Props) => {
-  const getColor = async (e: any) => {
+const ColorPicker = ({ setcolor }: any) => {
+  const getColor = async (e: { currentTarget: { id: string } }) => {
     setcolor(e.currentTarget.id);
     toast("Color changed");
   };

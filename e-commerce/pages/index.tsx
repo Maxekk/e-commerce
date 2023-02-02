@@ -29,8 +29,9 @@ const Home: NextPage = ({ products }: any) => {
 export async function getServerSideProps() {
   const query = groq`*[_type == "product"]`;
   const products: IProduct[] = await client.fetch(query);
+
   return {
-    props: { products }, // will be passed to the page component as props
+    props: { products },
   };
 }
 export default Home;

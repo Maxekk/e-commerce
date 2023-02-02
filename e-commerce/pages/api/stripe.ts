@@ -40,7 +40,7 @@ export default async function handler(
           };
         }),
         mode: "payment",
-        success_url: `${req.headers.origin}/?success=true`,
+        success_url: `${req.headers.origin}/succes`,
         cancel_url: `${req.headers.origin}/?canceled=true`,
       };
       const session = await stripe.checkout.sessions.create(params);

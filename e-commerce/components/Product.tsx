@@ -3,9 +3,9 @@ import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-type props = { id: string; name: string; price: number; imageURL: string };
+type Props = { id: string; name: string; price: number; imageURL: string };
 
-function Product({ name, price, imageURL, id }: props) {
+function Product({ name, price, imageURL, id }: Props) {
   useEffect(() => {
     AOS.init({
       mirror: false,

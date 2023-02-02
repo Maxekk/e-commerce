@@ -8,6 +8,14 @@ import { globalContext } from "../../context/Context";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+type Product = {
+  id: string;
+  name: string;
+  price: number;
+  imageURL: string;
+  quantity: number;
+};
+
 function ProductInfo() {
   const router = useRouter();
   const [count, setcount] = useState(0);
@@ -16,19 +24,22 @@ function ProductInfo() {
 
   const addToCart = () => {
     if (count == 0) {
-      console.log("cant add product of quantity 0 or below");
+      toast("Can't add a product of quantity 0");
     } else {
       const checkIfProductExist = cart.find(
-        (element: any) => element.id === router.query.id
+        (cartProduct: Product) => cartProduct.id === router.query.id
       );
 
       if (checkIfProductExist) {
-        const updatedCartItems = cart.map((cartProduct: any) => {
+        const updatedCartItems = cart.map((cartProduct: Product) => {
           if (router.query.id === cartProduct.id)
             return {
               ...cartProduct,
               quantity: cartProduct.quantity + count,
             };
+          else {
+            return { ...cartProduct };
+          }
         });
         setcart(updatedCartItems);
       } else {

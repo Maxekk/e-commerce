@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Counter({ count, setcount }) {
+type Props = {
+  count: number;
+  setcount: any;
+};
+
+export default function Counter({ count, setcount }: Props) {
   const handleIncrement = () => {
-    setcount((prev) => prev + 1);
+    setcount((prev: number) => prev + 1);
   };
 
   const handleDecrement = () => {
     if (count <= 0) {
       setcount(0);
     } else {
-      setcount((prev) => prev - 1);
+      setcount((prev: number) => prev - 1);
     }
   };
 

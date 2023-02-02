@@ -18,10 +18,13 @@
     "next": "^13.1.6",
     "next-sanity": "^3.1.8",
     "react": "18.2.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-social-icons": "^5.15.0",
     "react-toastify": "^9.1.1",
+    "react-use": "^17.4.0",
+    "react-use-window-size": "^1.0.1",
     "stripe": "^11.8.0",
     "styled-components": "^5.3.6",
     "tailwind-scrollbar-hide": "^1.1.7"
