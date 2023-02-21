@@ -46,7 +46,7 @@ export const schemaTypes = [product]
 - ```npm install```
 - ```sanity start```
 - In ```e-commerce/``` run: ```npm install```
-- Fill .env file with data (All data you will find on sanity panel on ```localhost:3000``` and stripe panel (```https://dashboard.stripe.com/test/apikeys```)
+- Fill .env file with data (All data you will find on sanity panel on ```localhost:3333``` and stripe panel (```https://dashboard.stripe.com/test/apikeys```)
 - ```npm run dev```
 
 App should be running on port 3000
