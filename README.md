@@ -1,8 +1,6 @@
 # E-commerce
 E-commerce application built using Next.js and Sanity CMS with integration with Stripe API
 
-Preview: http://35.228.233.43:3000
-
 Start:
 ------------
 
